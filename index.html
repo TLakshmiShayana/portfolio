@@ -1,0 +1,418 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MyPortfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= LOGIN PAGE ================= -->
+
+    <div id="loginPage" class="page">
+
+        <div class="login-card">
+
+            <div class="logo">
+                MyPortfolio
+            </div>
+
+            <h1>Welcome Back</h1>
+
+            <p class="subtitle">
+                Login to your portfolio
+            </p>
+
+            <form id="loginForm">
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <label>Login As</label>
+
+                <select id="loginRole">
+
+                    <option value="user">
+                        User
+                    </option>
+
+                    <option value="admin">
+                        Admin
+                    </option>
+
+                </select>
+
+                <button type="submit">
+                    Login
+                </button>
+
+                <p id="loginMessage"></p>
+
+            </form>
+
+            <p class="bottom-text">
+
+                Don't have an account?
+
+                <a href="#" onclick="showSignup()">
+                    Sign Up
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SIGNUP PAGE ================= -->
+
+    <div id="signupPage" class="page hidden">
+
+        <div class="login-card">
+
+            <div class="logo">
+                MyPortfolio
+            </div>
+
+            <h1>Create Account</h1>
+
+            <p class="subtitle">
+                Register as a user
+            </p>
+
+            <form id="signupForm">
+
+                <label>Full Name</label>
+
+                <input
+                    type="text"
+                    id="signupName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label>Email</label>
+
+                <input
+                    type="email"
+                    id="signupEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+                <label>Password</label>
+
+                <input
+                    type="password"
+                    id="signupPassword"
+                    placeholder="Create password"
+                    required
+                >
+
+                <label>Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                >
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+                <p id="signupMessage"></p>
+
+            </form>
+
+            <p class="bottom-text">
+
+                Already have an account?
+
+                <a href="#" onclick="showLogin()">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ADMIN DASHBOARD ================= -->
+
+    <div id="adminPage" class="hidden dashboard">
+
+        <nav class="navbar">
+
+            <div class="nav-logo">
+                MyPortfolio
+                <span>Admin</span>
+            </div>
+
+            <button
+                class="logout"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </nav>
+
+
+        <main class="admin-container">
+
+            <div class="welcome">
+
+                <h1 id="adminWelcome">
+                    Welcome Admin
+                </h1>
+
+                <p>
+                    Manage your portfolio
+                </p>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <h3>Projects</h3>
+
+                    <p id="projectCount">
+                        0
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3>Skills</h3>
+
+                    <p>
+                        6
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h3>Users</h3>
+
+                    <p id="userCount">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADD PROJECT -->
+
+            <section class="admin-box">
+
+                <h2>Add New Project</h2>
+
+                <form id="projectForm">
+
+                    <div class="form-grid">
+
+                        <input
+                            type="text"
+                            id="projectTitle"
+                            placeholder="Project Title"
+                            required
+                        >
+
+                        <input
+                            type="text"
+                            id="projectTechnology"
+                            placeholder="Technology"
+                            required
+                        >
+
+                    </div>
+
+                    <textarea
+                        id="projectDescription"
+                        placeholder="Project Description"
+                        required
+                    ></textarea>
+
+                    <button type="submit">
+                        Add Project
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+
+            <section class="admin-box">
+
+                <h2>Manage Projects</h2>
+
+                <div id="adminProjects">
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= USER DASHBOARD ================= -->
+
+    <div id="userPage" class="hidden dashboard">
+
+        <nav class="navbar">
+
+            <div class="nav-logo">
+                MyPortfolio
+            </div>
+
+            <button
+                class="logout"
+                onclick="logout()">
+
+                Logout
+
+            </button>
+
+        </nav>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <h1 id="userWelcome">
+                Welcome!
+            </h1>
+
+            <p>
+                Computer Science Engineering Student
+            </p>
+
+            <p>
+                Software • AI • Web Development
+            </p>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="portfolio-section">
+
+            <h2>About Me</h2>
+
+            <p>
+
+                Hello! I am a Computer Science Engineering
+                student passionate about software development,
+                Artificial Intelligence and modern web technologies.
+
+            </p>
+
+        </section>
+
+
+        <!-- SKILLS -->
+
+        <section class="portfolio-section">
+
+            <h2>My Skills</h2>
+
+            <div class="skills">
+
+                <span>Python</span>
+
+                <span>Java</span>
+
+                <span>HTML</span>
+
+                <span>CSS</span>
+
+                <span>JavaScript</span>
+
+                <span>Artificial Intelligence</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section class="portfolio-section">
+
+            <h2>My Projects</h2>
+
+            <div
+                id="userProjects"
+                class="user-projects">
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="portfolio-section contact">
+
+            <h2>Contact Me</h2>
+
+            <p>
+                Email: lakshmi@example.com
+            </p>
+
+            <p>
+                Phone: +91 XXXXX XXXXX
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
